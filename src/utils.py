@@ -1,10 +1,12 @@
 import json
 import os
-from src.Product import Product
+
 from src.Category import Category
+from src.Product import Product
 
 
 def read_json_file(path: str) -> list[dict]:
+    """Считывание из файла .Json"""
     full_path = os.path.abspath(path)
     with open(full_path, 'r', encoding='utf-8') as file:
         data = json.load(file)
@@ -12,6 +14,7 @@ def read_json_file(path: str) -> list[dict]:
 
 
 def create_clacc_objects(data: list[dict]):
+    """Создание экземпляров класса Category из списка полученного из Json."""
     categories = []
     for category in data:
         products = []
@@ -20,4 +23,3 @@ def create_clacc_objects(data: list[dict]):
         category['products'] = products
         categories.append(Category(**category))
     return categories
-
