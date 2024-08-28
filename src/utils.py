@@ -13,7 +13,7 @@ def read_json_file(path: str) -> list[dict]:
     return data
 
 
-def create_clacc_objects(data: list[dict]):
+def create_class_objects(data: list[dict]):
     """Создание экземпляров класса Category из списка полученного из Json."""
     categories = []
     for category in data:

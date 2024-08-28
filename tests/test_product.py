@@ -8,3 +8,4 @@ def test_product_init(product_first, product_second):
     assert product_second.description == "iphone из китая"
     assert product_second.price == 139789
     assert product_second.quantity == 6
+    product_first.new_product({})
