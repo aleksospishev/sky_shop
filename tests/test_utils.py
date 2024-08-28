@@ -1,6 +1,6 @@
 from unittest.mock import patch
 
-from src.utils import create_class_objects, read_json_file
+from src.utils import create_clacc_objects, read_json_file
 
 data_test_json = {"key_1": ["test", "test_1"], "key_2": ["AB", "CD", "DG"]}
 
