@@ -1,5 +1,6 @@
 # from src.Category import Category
 
+
 class Product:
     """Класс описывающий товары."""
 
@@ -21,10 +22,10 @@ class Product:
         if not products_list or products_list == []:
             return cls(**params_dict)
         for product in products_list:
-            if params_dict['name'] == product.name:
-                product.quantity += params_dict['quantity']
-                if params_dict['price'] > product.price:
-                    product.price = params_dict['price']
+            if params_dict["name"] == product.name:
+                product.quantity += params_dict["quantity"]
+                if params_dict["price"] > product.price:
+                    product.price = params_dict["price"]
                 return product
             else:
                 return cls(**params_dict)
@@ -39,13 +40,13 @@ class Product:
         """Сеттер для изменения цены у товара, при попытке снижения цены требуется подтверждение"""
         if new_price > 0:
             if self.__price > new_price:
-                answer = input('Вы действительно хотите снизить цену?(y/n)\n')
-                if answer.lower() == 'y':
+                answer = input("Вы действительно хотите снизить цену?(y/n)\n")
+                if answer.lower() == "y":
                     self.__price = new_price
             else:
                 self.__price = new_price
         else:
-            print('Цена не должна быть нулевая или отрицательная')
+            print("Цена не должна быть нулевая или отрицательная")
             return
 
 

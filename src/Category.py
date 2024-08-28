@@ -21,7 +21,7 @@ class Category:
     @property
     def products(self):
         """Геттер для списка продуктов в виде строки класса Category."""
-        str_product = ''
+        str_product = ""
         for product in self.__products:
             str_product += f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n"
         return str_product
