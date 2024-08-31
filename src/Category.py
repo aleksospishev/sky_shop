@@ -18,6 +18,17 @@ class Category:
         Category.category_count += 1
         Category.product_count += len(products)
 
+    def __repr__(self):
+        return (
+            f"{self.__class__.name}: {self.name}, {self.description}, {self.__products}"
+        )
+
+    def __str__(self):
+        count_product = 0
+        for product in self.__products:
+            count_product += product.quantity
+        return f"{self.name}, количество продуктов: {count_product} шт."
+
     @property
     def products(self):
         """Геттер для списка продуктов в виде строки класса Category."""
