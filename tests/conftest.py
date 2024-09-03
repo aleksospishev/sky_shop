@@ -1,6 +1,7 @@
 import pytest
 
 from src.Category import Category
+from src.iterators import CategoryIterator
 from src.Product import Product
 
 
@@ -11,7 +12,7 @@ def product_first():
         name="NewBalance 530",
         description="оригинальные кроссовки",
         price=12390,
-        quantity=9,
+        quantity=10,
     )
 
 
@@ -19,7 +20,7 @@ def product_first():
 def product_second():
     """фикстура на экземпляр класса Product."""
     return Product(
-        name="Iphone 15pro 1tb", description="iphone из китая", price=139789, quantity=6
+        name="Iphone 15pro 1tb", description="iphone из китая", price=130000, quantity=6
     )
 
 
@@ -88,3 +89,8 @@ def data_test():
             ],
         },
     ]
+
+
+@pytest.fixture
+def category_iterator1(category1):
+    return CategoryIterator(category1)

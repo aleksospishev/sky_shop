@@ -15,3 +15,8 @@ def test_category_init(category1, category2, product_first):
     assert len(category1.get_products_list_name) == 3
     category1.add_product(product_first)
     assert category1.product_count == 5
+
+
+def test_new_method_category(category1, category2):
+    assert str(category1) == "Одежда, количество продуктов: 19 шт."
+    assert str(category2) == "Электроника, количество продуктов: 13 шт."
