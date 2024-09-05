@@ -2,6 +2,7 @@ import pytest
 
 
 def test_categoryiterator(category_iterator1):
+    """Тест функционала итератора категории."""
     assert category_iterator1.index == 0
     elem = next(category_iterator1)
     assert elem.name == "Футболка"
