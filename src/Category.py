@@ -1,6 +1,7 @@
 from src.Product import Product
 from src.zeroproducterror import ZeroProductError
 
+
 class Category:
     """Класс описывающий категории товаров и включает в себя список экземпляров класса Product."""
 
@@ -47,7 +48,9 @@ class Category:
         if isinstance(product, Product):
             try:
                 if product.quantity <= 0:
-                    raise ZeroProductError("количество товара не может быть нулевым или отрицательным")
+                    raise ZeroProductError(
+                        "количество товара не может быть нулевым или отрицательным"
+                    )
             except ZeroProductError as e:
                 print(str(e))
             else:
@@ -61,6 +64,10 @@ class Category:
 
     def middle_price(self):
         try:
-            return round(sum([product.price for product in self.__products])/len(self.__products), 2)
+            return round(
+                sum([product.price for product in self.__products])
+                / len(self.__products),
+                2,
+            )
         except ZeroDivisionError:
             return 0.0

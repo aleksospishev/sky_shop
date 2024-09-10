@@ -55,4 +55,3 @@ def test_init_product_not_validle():
     with pytest.raises(ValueError):
         product1 = Product("Футболка", "белая", 1000, 0)
         return product1
-

@@ -1,5 +1,3 @@
 class ZeroProductError(Exception):
-    def __init__(self, message = None):
+    def __init__(self, message=None):
         super().__init__(message)
-    #
-    # def __repr__(self):

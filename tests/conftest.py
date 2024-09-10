@@ -153,9 +153,4 @@ def grass2():
 @pytest.fixture
 def category3():
     """Фикстура на экземпляр класса Category."""
-    return Category(
-        name="hi-fi",
-        description="для настоящих меломанов",
-        products=[]
-    )
-
+    return Category(name="hi-fi", description="для настоящих меломанов", products=[])

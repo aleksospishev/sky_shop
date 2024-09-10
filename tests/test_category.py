@@ -31,4 +31,3 @@ def test_middle_price(category1, category2, category3):
     assert category1.middle_price() == 10563.0
     assert category2.middle_price() == 87900.0
     assert category3.middle_price() == 0
-
