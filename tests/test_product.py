@@ -1,3 +1,5 @@
+import pytest
+
 from src.Product import Product
 
 
@@ -31,10 +33,26 @@ def test_product_init(product_first, product_second, category1):
     assert new_product_2.name == "Футболка"
     assert new_product_2.quantity == 6
     assert new_product_2.price == 1100
+    new_product_3 = Product.new_product(
+        {"name": "Футболка", "description": "белая", "price": 1400, "quantity": 2},
+        category1.get_products_list_name,
+    )
+    assert new_product_3.price == 1400
+    new_product4 = Product.new_product(
+        {"name": "шорты", "description": "черные", "price": 1400, "quantity": 2},
+        category1.get_products_list_name,
+    )
+    assert new_product4.name == "шорты"
 
 
 def test_new_method_product(product_first, product_second):
     assert str(product_first) == "NewBalance 530, 12390 руб. Остаток: 10 шт."
     assert str(product_second) == "Iphone 15pro 1tb, 130000 руб. Остаток: 6 шт."
     assert product_first + product_second == 903900
-    # print(product_first+product_second )
+
+
+def test_init_product_not_validle():
+    with pytest.raises(ValueError):
+        product1 = Product("Футболка", "белая", 1000, 0)
+        return product1
+
