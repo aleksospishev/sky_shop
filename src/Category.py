@@ -1,4 +1,5 @@
 from src.Product import Product
+from src.zeroproducterror import ZeroProductError
 
 
 class Category:
@@ -45,7 +46,28 @@ class Category:
     def add_product(self, product: Product):
         """Метод для того чтобы добавить экземпляр класса Product в список продуктов."""
         if isinstance(product, Product):
-            self.__products.append(product)
-            Category.product_count += 1
+            try:
+                if product.quantity <= 0:
+                    raise ZeroProductError(
+                        "количество товара не может быть нулевым или отрицательным"
+                    )
+            except ZeroProductError as e:
+                print(str(e))
+            else:
+                self.__products.append(product)
+                Category.product_count += 1
+                print("добавление товара прошло успешно")
+            finally:
+                print("обработка добавления товара завершена")
         else:
             raise TypeError
+
+    def middle_price(self):
+        try:
+            return round(
+                sum([product.price for product in self.__products])
+                / len(self.__products),
+                2,
+            )
+        except ZeroDivisionError:
+            return 0.0

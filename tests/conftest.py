@@ -148,3 +148,9 @@ def grass2():
         "5 дней",
         "Темно-зеленый",
     )
+
+
+@pytest.fixture
+def category3():
+    """Фикстура на экземпляр класса Category."""
+    return Category(name="hi-fi", description="для настоящих меломанов", products=[])

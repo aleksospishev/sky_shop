@@ -25,3 +25,9 @@ def test_new_method_category(category1, category2):
 def test_category_setter_error(category1):
     with pytest.raises(TypeError):
         category1.add_product("product_first")
+
+
+def test_middle_price(category1, category2, category3):
+    assert category1.middle_price() == 10563.0
+    assert category2.middle_price() == 87900.0
+    assert category3.middle_price() == 0
